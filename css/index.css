@@ -1,3 +1,4 @@
+/* Estilos globais para o corpo e elementos */
 * {
     background-color: #444444;
     font-weight: bold;
@@ -9,18 +10,80 @@ body {
     margin: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 100vh;
+    flex-direction: column;
 }
 
+/* Estilos para o cronômetro */
+#crono {
+    position: absolute;
+    font-size: 20vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Estilos para o container de inputs (hora, minuto, segundo) */
+#container-regr {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    gap: 2vh;
+    position: absolute;
+    top: 10vh;
+    width: 100%;
+}
+
+#regr-hora,
+#regr-min,
+#regr-seg {
+    width: 10vh;
+    height: 6vh;
+    font-size: 3vh;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid #000000;
+    background-color: transparent;
+    color: white;
+}
+
+/* Estilos para os botões */
 #container {
     display: flex;
-    position: relative;
+    justify-content: center;
     gap: 4vh;
-    margin-bottom: 50vh;
+    position: absolute;
+    bottom: 10vh;
+    width: 100%;
 }
 
-#container input {
+#regressivo {
+    position: absolute;
+    bottom: 13vh;
+    width: 33vh;
+    height: 7vh;
+    border: none;
+    cursor: pointer;
+    border-radius: 3%;
+    transition: filter 0.1s ease-in-out;
+    background-color: cadetblue;
+
+    filter: drop-shadow(0 0 3px black);
+}
+
+#regressivo:hover {
+    filter: drop-shadow(0 0 5px black) brightness(0.5);
+}
+
+#regressivo:active {
+    filter: drop-shadow(0 0 5px black) brightness(0.3);
+}
+
+#iniciar,
+#parar,
+#reiniciar {
     width: 20vh;
     height: 8vh;
     border: none;
@@ -28,19 +91,6 @@ body {
     border-radius: 3%;
     transition: filter 0.1s ease-in-out;
     filter: drop-shadow(0 0 3px black);
-}
-
-#container input:hover {
-    filter: drop-shadow(0 0 5px black) brightness(0.5);
-}
-
-#container input:active {
-    filter: drop-shadow(0 0 5px black) brightness(0.3);
-}
-
-#crono {
-    position: absolute;
-    font-size: 20vh;
 }
 
 #iniciar {
@@ -55,6 +105,19 @@ body {
     background-color: darkslateblue;
 }
 
+#iniciar:hover,
+#parar:hover,
+#reiniciar:hover {
+    filter: drop-shadow(0 0 5px black) brightness(0.5);
+}
+
+#iniciar:active,
+#parar:active,
+#reiniciar:active {
+    filter: drop-shadow(0 0 5px black) brightness(0.3);
+}
+
+/* Estilos para o container de exibição do "Dia" */
 #container2 {
     opacity: 0;
     visibility: hidden;
@@ -69,8 +132,9 @@ body {
     gap: 1vh;
 }
 
+/* Estilos para o "Dia" */
 #h1dia,
 #dia {
     background-color: transparent;
-    font-size: 10vh
+    font-size: 10vh;
 }

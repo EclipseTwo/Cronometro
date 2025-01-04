@@ -1,3 +1,7 @@
+// Criador: yTwo ( Com ajudas de Devs)
+// OBS: MDS, To morto de cansado, muito obrigado digi, gargamel e mais 1 mano que eu nao lembro o nome
+// To com sono agora.
+
 let tempoAtual = 0;
 let IntervalId;
 let tempoPausado = 0;
@@ -84,12 +88,11 @@ function Reiniciar() {
 }
 
 function ModoRegressivo() {
-
     let horaRegra = document.getElementById('regr-hora');
     let minRegra = document.getElementById('regr-min');
     let segRegra = document.getElementById('regr-seg');
 
-    if (horaRegra.value > 0) {
+    if (horaRegra.value > 0 || minRegra.value > 0 || segRegra.value > 0) {
         if (minRegra.value > 0) {
             if (segRegra.value > 0) {
                 segRegra.value--;
@@ -108,11 +111,15 @@ function ModoRegressivo() {
         clearInterval(IntervalId);
     }
 
-    horaRegra.value = horaRegra.value < 10 ? "0" + horaRegra.value : horaRegra.value;
-    minRegra.value = minRegra.value < 10 ? "0" + minRegra.value : minRegra.value;
-    segRegra.value = segRegra.value < 10 ? "0" + segRegra.value : segRegra.value;
+    horaRegra.value = horaRegra.length < 2 ? "0" + horaRegra.value : horaRegra.value;
+    minRegra.value = minRegra.length < 2 ? "0" + minRegra.value : minRegra.value;
+    segRegra.value = segRegra.length < 2 ? "0" + segRegra.value : segRegra.value;
+
 
     const tempo = horaRegra.value + ":" + minRegra.value + ":" + segRegra.value;
 
     document.getElementById('crono').innerHTML = tempo;
+    // Caso se perguntem sobre o nome das variaveis ter mudado tanto
+    // Eu tava com preguiça de arrumar uma por uma entao pedi pra IA trocar os nomes, ai eu só segui como ela fez
+    // :D
 }

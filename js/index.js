@@ -5,9 +5,6 @@ let verifica = true;
 
 const regressivocaixa = document.getElementById('container-regr');
 const botaoregressivo = document.getElementById('regressivo');
-let hora_regr = document.getElementById('regr-hora');
-let min_regr = document.getElementById('regr-min');
-let seg_regr = document.getElementById('regr-seg');
 
 botaoregressivo.addEventListener('click', function () {
     if (verifica) {
@@ -87,36 +84,35 @@ function Reiniciar() {
 }
 
 function ModoRegressivo() {
-    hora = hora_regr.value;
-    min = min_regr.value;
-    seg = seg_regr.value;
 
-    if (hora > 0) {
-        if (min > 0) {
-            if (seg > 0) {
+    let horaRegra = document.getElementById('regr-hora');
+    let minRegra = document.getElementById('regr-min');
+    let segRegra = document.getElementById('regr-seg');
 
-                seg--;
-            } else if (seg <= 0) {
-
-                seg = 59;
-                min--;
+    if (horaRegra.value > 0) {
+        if (minRegra.value > 0) {
+            if (segRegra.value > 0) {
+                segRegra.value--;
+            } else if (segRegra.value <= 0) {
+                segRegra.value = 59;
+                minRegra.value--;
             }
-        } else if (min <= 0) {
-            if (seg <= 0 && hora > 0) {
-
-                min = 59;
-                seg = 59;
-                hora--;
+        } else if (minRegra.value <= 0) {
+            if (segRegra.value <= 0 && horaRegra.value > 0) {
+                minRegra.value = 59;
+                segRegra.value = 59;
+                horaRegra.value--;
             }
         }
-    } else if (hora <= 0 && min <= 0 && seg <= 0) {
+    } else if (horaRegra.value <= 0 && minRegra.value <= 0 && segRegra.value <= 0) {
         clearInterval(IntervalId);
     }
 
-    hora = hora < 10 ? "0" + hora : hora;
-    min = min < 10 ? "0" + min : min;
-    seg = seg < 10 ? "0" + seg : seg;
+    horaRegra.value = horaRegra.value < 10 ? "0" + horaRegra.value : horaRegra.value;
+    minRegra.value = minRegra.value < 10 ? "0" + minRegra.value : minRegra.value;
+    segRegra.value = segRegra.value < 10 ? "0" + segRegra.value : segRegra.value;
 
-    const tempo = hora + ":" + min + ":" + seg;
+    const tempo = horaRegra.value + ":" + minRegra.value + ":" + segRegra.value;
+
     document.getElementById('crono').innerHTML = tempo;
 }

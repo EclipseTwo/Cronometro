@@ -117,7 +117,6 @@ body {
     filter: drop-shadow(0 0 5px black) brightness(0.3);
 }
 
-/* Estilos para o container de exibição do "Dia" */
 #container2 {
     opacity: 0;
     visibility: hidden;
@@ -132,7 +131,6 @@ body {
     gap: 1vh;
 }
 
-/* Estilos para o "Dia" */
 #h1dia,
 #dia {
     background-color: transparent;

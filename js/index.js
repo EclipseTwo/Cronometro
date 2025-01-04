@@ -3,11 +3,7 @@ let IntervalId;
 let tempoPausado = 0;
 
 function Iniciar() {
-    if (!tempoAtual) {
-        tempoAtual = Date.now();
-    } else {
-        tempoAtual = Date.now() - tempoPausado;
-    }
+    tempoAtual = Date.now() - tempoPausado;
     IntervalId = setInterval(Rodando, 1000);
 }
 
@@ -46,4 +42,10 @@ function Rodando() {
 function Parar() {
     clearInterval(IntervalId);
     tempoPausado = Date.now() - tempoAtual;
+}
+
+function Reiniciar() {
+    clearInterval(IntervalId);
+    tempoAtual = 0;
+    document.getElementById('crono').innerHTML = "00:00:00";
 }
